@@ -13,7 +13,7 @@ const pageConfig: PageConfig = {
   // If not specified, all monitors will be shown in a single list
   // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
   group: {
-    '🌐 Public (example group name)': ['foo_monitor', 'bar_monitor', 'more monitor ids...'],
+    '🌐 Public (example group name)': ['foo_monitor'],
     '🔐 Private': ['test_tcp_monitor'],
   },
   // [OPTIONAL] Set the path to your favicon, default to '/favicon.png' if not specified
@@ -65,7 +65,7 @@ const workerConfig: WorkerConfig = {
       // [OPTIONAL] body to be sent
       body: 'Hello, world!',
       // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
-      responseKeyword: 'success',
+      //responseKeyword: 'success',
       // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
       responseForbiddenKeyword: 'bad gateway',
       // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
