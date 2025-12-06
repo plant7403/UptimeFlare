@@ -104,8 +104,9 @@ const workerConfig: WorkerConfig = {
       payload: {
         //chat_id: 12345678,
         //text: '$MSG',
-        body: 'Hi, hi, hi, hi, hi, how are you, what do you think? is everything ok? good to see <3',
+        text: 'Hi, test.',
       },
+      body: 'And what is this, then?',
       // [Optional] timeout calling this webhook, in millisecond, default to 5000
       timeout: 10000,
     },
