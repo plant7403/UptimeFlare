@@ -82,7 +82,7 @@ const workerConfig: WorkerConfig = {
     // More info at Wiki: https://github.com/lyc8503/UptimeFlare/wiki/Setup-notification
     webhook: {
       // [Required] webhook URL (example: Telegram Bot API)
-      url: 'https://push.pak.academy/mywebhook',
+      url: 'https://push.pak.academy',
       // [Optional] HTTP method, default to 'GET' for payloadType=param, 'POST' otherwise
       method: 'POST',
       // [Optional] headers to be sent
@@ -92,7 +92,6 @@ const workerConfig: WorkerConfig = {
 	      'Click': 'https://status.uwuu.space',
         'Content-Type': 'application/json',
         'Tags': 'warning,mailsrv13,daily-backup',
-        'Body': 'TeSt!',
       },
       // [Required] Specify how to encode the payload
       // Should be one of 'param', 'json' or 'x-www-form-urlencoded'
@@ -105,7 +104,9 @@ const workerConfig: WorkerConfig = {
       payload: {
         //chat_id: 12345678,
         //text: '$MSG',
-        text: 'Hi, test.',
+        'topic': 'mywebhook',
+        'message': 'Disk space is low at 5.1 GB',
+        "actions": [{ "action": "view", "label": "Admin panel", "url": "https://filesrv.lan/admin" }],
       },
       // [Optional] timeout calling this webhook, in millisecond, default to 5000
       timeout: 10000,
@@ -115,7 +116,7 @@ const workerConfig: WorkerConfig = {
     // [Optional] grace period in minutes before sending a notification
     // notification will be sent only if the monitor is down for N continuous checks after the initial failure
     // if not specified, notification will be sent immediately
-    //gracePeriod: 5,
+    gracePeriod: 5,
     // [Optional] disable notification for monitors with specified ids
     //skipNotificationIds: ['foo_monitor', 'bar_monitor'],
     // [Optional] suppress extra notifications for error reason changes during an incident, default to false
