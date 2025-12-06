@@ -92,6 +92,7 @@ const workerConfig: WorkerConfig = {
 	      'Click': 'https://status.uwuu.space',
         'Content-Type': 'application/json',
         'Tags': 'warning,mailsrv13,daily-backup',
+        'Body': 'TeSt!',
       },
       // [Required] Specify how to encode the payload
       // Should be one of 'param', 'json' or 'x-www-form-urlencoded'
@@ -106,7 +107,6 @@ const workerConfig: WorkerConfig = {
         //text: '$MSG',
         text: 'Hi, test.',
       },
-      body: 'And what is this, then?',
       // [Optional] timeout calling this webhook, in millisecond, default to 5000
       timeout: 10000,
     },
