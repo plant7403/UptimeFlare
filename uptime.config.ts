@@ -82,7 +82,7 @@ const workerConfig: WorkerConfig = {
     // More info at Wiki: https://github.com/lyc8503/UptimeFlare/wiki/Setup-notification
     webhook: {
       // [Required] webhook URL (example: Telegram Bot API)
-      url: 'https://push.pak.academy',
+      url: 'https://push.pak.academy/mywebhook',
       // [Optional] HTTP method, default to 'GET' for payloadType=param, 'POST' otherwise
       method: 'POST',
       // [Optional] headers to be sent
@@ -116,7 +116,7 @@ const workerConfig: WorkerConfig = {
     // [Optional] grace period in minutes before sending a notification
     // notification will be sent only if the monitor is down for N continuous checks after the initial failure
     // if not specified, notification will be sent immediately
-    gracePeriod: 5,
+    gracePeriod: 2,
     // [Optional] disable notification for monitors with specified ids
     //skipNotificationIds: ['foo_monitor', 'bar_monitor'],
     // [Optional] suppress extra notifications for error reason changes during an incident, default to false
