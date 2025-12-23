@@ -5,21 +5,22 @@ const pageConfig: PageConfig = {
   title: "Pak Unity Status",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://github.com/', label: 'GitHub' },
-    { link: 'https://blog.pak.academy/', label: 'Blog' },
+    { link: 'https://git.pak.academy/', label: 'Forgejo' },
+    { link: 'https://pak.academy/', label: 'Blog' },
     { link: 'mailto:contact@pak.academy', label: 'Email Me', highlight: true },
   ],
   // [OPTIONAL] Group your monitors
   // If not specified, all monitors will be shown in a single list
   // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
   group: {
-    '🌐 Websites': ['pak.academy', 'expat.food'],
-    '🔐 Private': ['test_tcp_monitor'],
+    '🌐 Pak Academy': ['pak.academy'],
+    '🌐 Websites': ['expat.food', 'dev.expat.food', 'ssh_expat'],
+    '🔐 Private': ['ssh_expat'],
   },
   // [OPTIONAL] Set the path to your favicon, default to '/favicon.png' if not specified
-  // favicon: 'https://example.com/favicon.ico',
+  favicon: 'https://expat.food/web/image/website/1/favicon?unique=2401758',
   // [OPTIONAL] Set the path to your logo, default to '/logo.svg' if not specified
-  // logo: 'https://example.com/logo.svg',
+  logo: 'https://expat.food/web/image/website/1/logo/My%20Website?unique=2401758',
   // [OPTIONAL] Maintenance related settings
   maintenances: {
     // [OPTIONAL] The color of upcoming maintenance alerts, default to 'gray'
@@ -27,7 +28,7 @@ const pageConfig: PageConfig = {
     upcomingColor: 'gray',
   },
   // [OPTIONAL] Custom footer html
-  // customFooter: '',
+  customFooter: 'hi!',
 }
 
 const workerConfig: WorkerConfig = {
@@ -50,6 +51,7 @@ const workerConfig: WorkerConfig = {
       },
       body: 'Hello, world!',
     },
+
     {
       id: 'expat.food',
       name: 'Expat Food Main Page',
@@ -63,10 +65,23 @@ const workerConfig: WorkerConfig = {
       },
       body: 'Hello, world!',
     },
+    {
+      id: 'devexpat.food',
+      name: 'Dev Expat Food Main Page',
+      method: 'POST',
+      target: 'http://dev.expat.food',
+      tooltip: 'This is a tooltip for this monitor',
+      statusPageLink: 'https://dev.expat.food',
+      hideLatencyChart: false,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+      body: 'Hello, world!',
+    },
     // Example TCP Monitor
     {
-      id: 'test_tcp_monitor',
-      name: 'Example TCP Monitor',
+      id: 'ssh_expat',
+      name: 'SSH Port Monitoring',
       // `method` should be `TCP_PING` for tcp monitors
       method: 'TCP_PING',
       // `target` should be `host:port` for tcp monitors
@@ -88,8 +103,8 @@ const workerConfig: WorkerConfig = {
       // [Optional] headers to be sent
       headers: {
         'Host': 'push.pak.academy',
-	      'Title': 'Experiencing downtime..',
-	      'Click': 'https://status.uwuu.space',
+        'Title': 'Experiencing downtime..',
+        'Click': 'https://status.uwuu.space',
         'Content-Type': 'application/json',
         'Tags': 'warning,mailsrv13,daily-backup',
       },
@@ -199,4 +214,3 @@ const maintenances: MaintenanceConfig[] = [
 
 // Don't forget this, otherwise compilation fails.
 export { maintenances, pageConfig, workerConfig }
-
